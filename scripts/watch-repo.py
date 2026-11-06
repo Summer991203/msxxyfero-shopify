@@ -90,6 +90,7 @@ def main() -> None:
                 continue
 
             if new_sha == last_sha:
+                log(f"git sync OK at {new_sha[:7]}; no new task commits")
                 time.sleep(POLL_SECONDS)
                 continue
 
@@ -139,7 +140,7 @@ def main() -> None:
                 save_state(state)
                 log(f"codex failed or timed out; cooling down {RETRY_AFTER_FAILURE}s: {str(exc)[-500:]}; stderr tail: {str(getattr(exc, 'stderr', '') or '')[-500:]}")
             else:
-                log(f"git command failed; no Codex launched: {str(exc)[-500:]}")
+                log(f"git command failed; no Codex launched: {str(exc)[-500:]}; stderr tail: {str(getattr(exc, 'stderr', '') or '')[-500:]}")
         except Exception as exc:  # noqa: BLE001 - watcher must not die on one error
             log(f"unexpected error: {exc!r}")
         time.sleep(POLL_SECONDS)
