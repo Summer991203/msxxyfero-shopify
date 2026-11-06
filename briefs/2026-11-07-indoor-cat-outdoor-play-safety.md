@@ -1,5 +1,15 @@
 # Brief：2026-11-07 每日 Blog
 
+## 选题依据（Codex 补齐，2026-11-06 核查）
+
+- Muse 在协作总 brief 提供的本周方向是 indoor cat enrichment；vidIQ 月搜索量和“本周热词”未提供原始报告，本次不把这些数字或趋势当成已独立核实的事实。
+- American Humane Society《Indoor Cats vs. Outdoor Cats: Which is Safer for Your Cat?》页面明确标注 Updated October 2026，讨论室内丰富化、封闭户外空间与自由外出的风险，支持本篇把“是否适合外出”转化为逐项检查：https://www.americanhumane.org/public-education/indoor-cats-vs-outdoor-cats/
+- Cats Protection 的户外安全与中暑指南、RSPCA 花园指南，支持持续监督、逐渐适应、遮阴通风、避开危险环境等具体检查项。来源读取日期为 2026-11-06，不宣称这些常青指南是本周新发布内容。
+  - https://www.cats.org.uk/help-and-advice/caring-for-your-cat/home-and-environment/keeping-cats-safe-outside
+  - https://www.cats.org.uk/help-and-advice/health/heatstroke-in-cats
+  - https://www.rspca.org.uk/adviceandwelfare/pets/cats/environment/gardens
+- 选题判断：补充现有“如何开始”和“如何选购”文章，回答外出前和回家后的检查问题；这是编辑判断，不是搜索量、排名或销量保证。
+
 题目：Indoor Cat Outdoor Play Safety: 7 Supervised-Use Checks Before You Go Out
 
 角度：安全清单，不是产品推销；文末自然提到 Pop-Up Cat Ball 一次，带产品链接。

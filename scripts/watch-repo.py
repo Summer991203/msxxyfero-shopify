@@ -24,6 +24,8 @@ msxxyfero-shopify 仓库监听脚本 — 跑在用户电脑上，不是跑在 Mu
 """
 
 import json
+import os
+import shutil
 import subprocess
 import sys
 import time
@@ -32,8 +34,8 @@ from pathlib import Path
 REPO_DIR = Path(__file__).resolve().parent.parent
 POLL_SECONDS = 300          # 轮询间隔，5 分钟
 RETRY_AFTER_FAILURE = 3600  # codex 失败（比如额度用完）后，等 1 小时再试
-STATE_FILE = Path.home() / ".msxxyfero-watcher-state.json"
-LOG_FILE = Path.home() / ".msxxyfero-watcher.log"
+STATE_FILE = Path(os.environ.get("MSXXYFERO_STATE_FILE", Path.home() / ".msxxyfero-watcher-state.json"))
+LOG_FILE = Path(os.environ.get("MSXXYFERO_LOG_FILE", Path.home() / ".msxxyfero-watcher.log"))
 WATCHED_DIRS = ("tasks/", "briefs/")
 
 
@@ -49,7 +51,8 @@ def log(msg: str) -> None:
 
 def run(cmd: list[str], timeout: int = 120) -> subprocess.CompletedProcess:
     return subprocess.run(
-        cmd, cwd=REPO_DIR, capture_output=True, text=True, timeout=timeout
+        cmd, cwd=REPO_DIR, capture_output=True, text=True, encoding="utf-8",
+        errors="replace", timeout=timeout, check=True
     )
 
 
@@ -69,7 +72,7 @@ def main() -> None:
     state = load_state()
     while True:
         try:
-            run(["git", "fetch", "origin"], timeout=60)
+            run(["git", "pull", "--ff-only", "origin", "main"], timeout=120)
             head = run(["git", "rev-parse", "origin/main"], timeout=60)
             new_sha = head.stdout.strip()
             if not new_sha:
@@ -109,33 +112,34 @@ def main() -> None:
                 continue
 
             log(f"new tasks found in {changed}, running codex exec")
-            run(["git", "pull", "--ff-only", "origin", "main"], timeout=120)
-            result = run(
+            run(
                 [
-                    "codex", "exec", "--skip-git-repo-check",
+                    os.environ.get("MSXXYFERO_CODEX_EXE") or shutil.which("codex") or "codex",
+                    "exec", "--skip-git-repo-check", "--sandbox", "workspace-write",
+                    "--add-dir", "D:/Codex",
+                    "-c", "sandbox_workspace_write.network_access=true",
                     "-C", str(REPO_DIR),
                     "Read status.md, CODEX.md, and the new or changed files in "
                     "tasks/ and briefs/. Do the pending items in order, follow "
-                    "CODEX.md, then git push and update status.md.",
+                    "CODEX.md. "
+                    "Save all deliverables in D:/Codex. Update status.md before git push. "
+                    "If a required tool, approval, image generation or publishing step is "
+                    "unavailable, record the blocker truthfully and exit nonzero; never "
+                    "report an unpublished article as live.",
                 ],
                 timeout=3600,
             )
-            if result.returncode == 0:
-                state["last_sha"] = new_sha
-                state.pop("next_retry", None)
-                save_state(state)
-                log(f"codex finished OK for {new_sha[:7]}")
-            else:
-                # 失败不更新 last_sha（下次还会试），但先冷却 1 小时，别一直刷额度。
+            state["last_sha"] = new_sha
+            state.pop("next_retry", None)
+            save_state(state)
+            log(f"codex finished OK for {new_sha[:7]}")
+        except (subprocess.TimeoutExpired, subprocess.CalledProcessError) as exc:
+            if "exec" in exc.cmd:
                 state["next_retry"] = time.time() + RETRY_AFTER_FAILURE
                 save_state(state)
-                log(
-                    f"codex failed (rc={result.returncode}), "
-                    f"cooling down {RETRY_AFTER_FAILURE}s. "
-                    f"stderr tail: {result.stderr[-500:]}"
-                )
-        except subprocess.TimeoutExpired:
-            log("a command timed out, retry later")
+                log(f"codex failed or timed out; cooling down {RETRY_AFTER_FAILURE}s: {str(exc)[-500:]}; stderr tail: {str(getattr(exc, 'stderr', '') or '')[-500:]}")
+            else:
+                log(f"git command failed; no Codex launched: {str(exc)[-500:]}")
         except Exception as exc:  # noqa: BLE001 - watcher must not die on one error
             log(f"unexpected error: {exc!r}")
         time.sleep(POLL_SECONDS)
