@@ -11,6 +11,12 @@
 3. Muse 打开 live 页逐项验：标题、价格、产品名、链接、图片、错别字
 4. 有问题 Muse 写回修清单给 Codex 改；没问题记入日报，定次日选题
 
+## 选题规则（用户 2026-11-06 定：贴合每周热度）
+- 选题不凭感觉：每周 Muse 先查一次热度再写当周 brief，来源是 vidIQ 关键词（省着用，额度有限）+ 网上搜本周新出的同类文章 + Google / 社媒宠物搜索词。
+- 每篇 brief 开头必须写“选题依据”，注明查到的热词 / 数据 / 来源日期，写不出依据就不发。
+- 已知的词（vidIQ 2026-11-05）：cat behavior 76,286/月、cat care 28,950/月、indoor cat 4,975/月、cat advice 7,596/月（+110%）；“indoor cat outdoor” 不到 750/月，别用。
+- 本周热度（2026-11-06 查）：indoor cat enrichment 是热词，多家 11 月 1-5 日新文章都在写每天 2 次、每次 10-15 分钟的日常流程；“how long / how much play” 是出现最多的 FAQ 格式。
+
 ## 硬规则（Codex 也必须遵守，Muse 负责验）
 - 产品名：Pop-Up Cat Ball，不是 carrier，不是 rolling playpen
 - 价格：$29.99，was $39.99，free shipping，Black Friday 截止 Dec 1
@@ -53,8 +59,8 @@ SEO：title 60 字内，meta description 150 字内，含 indoor cat outdoor pla
 - 发布时有没有改动 brief 的地方：
 - 自查：价格、产品名、保证、链接都对吗？
 
-## 共享通道（2026-11-06 查过状态）
-- GitHub：Muse 侧目前 not_connected，需一次 OAuth + 选仓库；Codex 侧是原生（git pull/push、diff、版本记录），最适合文字 brief + 文章 + 状态文件。
-- Google Drive：Muse 侧已 connected，今天 8 条视频就是走 Drive 传的，已验证可用；Codex 侧不是原生，要靠本地同步文件夹或 API，文字来回容易互相覆盖、没有版本记录。
-- 推荐：GitHub 为主（brief、文章、进度），Drive 为辅（生图原图、大文件）。图片最终是传到 Shopify 上，Muse 验的是 live 链接，不用把大图都塞进仓库。
+## 共享通道（2026-11-06 已接通）
+- GitHub：Summer991203/msxxyfero-shopify，Muse 已连通，首次推送成功（commit 54732ef）。Codex 侧是原生（git pull/push、diff、版本记录），最适合文字 brief + 文章 + 状态文件。
+- Google Drive：Muse 侧已 connected；Codex 侧不是原生，要靠本地同步文件夹或 API，文字来回容易互相覆盖、没有版本记录。
+- 分工：GitHub 为主（brief、文章、进度），Drive 为辅（生图原图、大文件）。图片最终是传到 Shopify 上，Muse 验的是 live 链接，不用把大图都塞进仓库。
 - Drive 图片文件夹已建好 2026-11-06：Msxxyfero Blog Images - Codex，https://drive.google.com/drive/folders/1gG9siRiuZMwhVSfLKIhgsekctAkTK1gK — Codex 生图放这里，Muse 从这里取图验。
