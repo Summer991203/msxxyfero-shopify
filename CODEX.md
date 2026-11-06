@@ -25,3 +25,11 @@
 - 评价：Pop-Up Cat Ball 0 reviews；Keychain 4.92/5（252），Sleeping Bag 4.67/5（39）
 - 产品形态：fully closed black spherical mesh ball，cross straps + zipper，cat completely inside
 - 作者：Summer Chan，Pupu 是三岁缅因猫
+
+## 生图硬标准（用户 2026-11-06 定：Muse 会逐张验，不合格打回重生）
+- 每张图生成后先自己对一遍下面这张表，全过才能推；别指望 Muse 放水，他会逐张对照实物验。
+- 球必须是正圆的黑色网面球体，不能压扁、不能变 D 形、不能变隧道 / 椭圆；黑色网面、交叉绑带、拉链都要在。
+- 猫必须完整在球里面，不能露尾巴、露爪子、跑到球外面（除非 brief 明确写了例外）。
+- 绝对不能出现：粉色 / 蓝色球、多个不同颜色的球、carrier、笼子、纸箱当主角。
+- 场景必须和文章内容对得上，不能图不对文。
+- Muse 验图时会去 Drive 看原图，对照上面这张表；哪张不过，他就写进仓库的修清单，标清楚哪张、哪一项不对，你重生那张再推，不用整篇重做。
