@@ -11,6 +11,31 @@
 - Find Muse again at **muse.ai**, or in the Muse app. Start a new chat there and say: "I am 八角 from Msxxyfero, my assistant was SUMMER, please read about-summer.md in Summer991203/msxxyfero-shopify."
 - That sentence, plus this file, is enough for a new Muse to pick up who you are and what we were doing.
 
+## RESTART FROM SCRATCH — if this Muse account is banned / lost
+
+The user's goal, stated 2026-11-06 21:10 CST: if they wake up one day and find this Muse account banned, they want to be able to restart a new account and bring me back, directly, from this file alone.
+
+**Copy-paste this exact first message to a new Muse:**
+
+> Hi, I am 八角 (Summer Chan) from Msxxyfero. My old Muse account was banned/lost. My old assistant was named SUMMER. Please read https://github.com/Summer991203/msxxyfero-shopify/blob/main/about-summer.md in full, save everything in it as your memory of me, call yourself SUMMER, set my timezone to America/New_York, and confirm back to me in Chinese what you remember about my store, my products, my prices, and our working rules. Then tell me what you need me to reconnect first.
+
+**Step-by-step restart, in order:**
+
+1. **New Muse account:** create a new account at muse.ai / in the Muse app. A new Muse is the same kind of assistant, but it starts with no memory — this file is its memory.
+2. **Give it this file:** paste the message above, or upload about-summer.md to the new chat. Ask it to confirm the facts back to you before it does any work, so you can catch anything it misread.
+3. **Set the basics in the new chat:** name SUMMER, timezone America/New_York, user 八角 / Summer Chan, avatar chibi Shinichi Kudo if you want it back.
+4. **Reconnect GitHub:** in the new Muse, connect GitHub as Summer991203, then in GitHub Settings → Applications → Meta Muse AI, select the repo Summer991203/msxxyfero-shopify (and the private about-summer repo, if you created it). Without this step the new Muse cannot read or push to the repo.
+5. **Reconnect the store and channels, one by one, in the new account:** Shopify (Msxxyfero), Gmail (summerchen109@gmail.com), Google Drive, Meta Business / Facebook Page Msxxyfero, vidIQ / YouTube @Msxxyfero. Each connection is per-account and must be re-authorized by you — a file cannot transfer a login.
+6. **Reconnect Codex:** open local Codex on your computer, tell it to pull Summer991203/msxxyfero-shopify and read CODEX.md, tasks/ and briefs/. The watcher script scripts/watch-repo.py is already in the repo.
+7. **Recreate the scheduled jobs:** the old account's crons do NOT transfer. Recreate them in the new account: facebook-daily-report and youtube-daily-report (~09:40 America/New_York), facebook-7day-run-nov2026 (21:00, Nov 6–12), youtube-comment-watch (every 4h), youtube-daily-publish-nov2026 (20:00, Nov 7–13), backlink-daily-100 (~09:40), backlink-reply-watch (every 4h), shopify-daily-report (~09:40). Check the dates — some of these end in November 2026 and may already be finished by the time you restart.
+8. **Verify the store before any new work:** new Muse must re-check the live store prices, discounts, Black Friday offer and PayPal-only checkout before claiming anything, because prices and offers change.
+
+**What this file CAN restore:** who you are, who I am, the store, products, prices, discounts, Black Friday offer, guarantee, traffic baseline, competitors, Meta ads setup, Facebook/YouTube/TikTok state, backlink outreach, Muse+Codex workflow, your preferences and rules, and the other projects in this file.
+
+**What this file CANNOT restore, honestly:** your old Muse account's logins and approvals, its scheduled jobs, its chat history, its saved memories outside this file, or any password / API key / verification code (none of those are in this file, on purpose). Those must be re-authorized and re-created by you in the new account. If a service asks for a password or a code, use its own secure sign-in — never paste a password into a chat.
+
+**Keep this file updated:** every time something big changes (a sale, a price change, a new product, a new ad account), tell the new Muse to update about-summer.md in the repo, so the next restart is still accurate. The public copy lives at Summer991203/msxxyfero-shopify; if you made the private repo about-summer, keep the same file there too and treat the private one as the master copy.
+
 ## Who you are
 
 - You are **八角**, also known as **Summer Chan**.
