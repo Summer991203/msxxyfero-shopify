@@ -22,11 +22,10 @@
 - **待处理**：11 月 8、9 日两个既有 brief 保持待执行；首次基线不会自动触发旧任务。后续按用户安排或 Muse 的新任务提交执行，届时核查事实与选题依据。
 - **下一步（Muse）**：验 live 页面；如有事实修正，写入 tasks/ 或 briefs/。本次未代发消息，也未声称 Muse 已验收。
 
-## TikTok #01 选文件任务（2026-11-14）
+## TikTok #01 环境准备（2026-11-14）
 
-- 检查时间：2026-11-14 10:59:46（Asia/Shanghai）。用户本次明确确认 #01 尚未发布，目标仅为选入文件。
-- `git pull --ff-only` 成功，执行前 main 为 `e77a41e`，工作区干净。
-- Node.js v24.19.0、npm 11.17.0 可用；已在 `scripts/` 一次性安装 playwright-core 1.65.1。依赖和 npm 缓存在 D 盘，node_modules、package 文件、错误截图已用本地 `.git/info/exclude` 排除，不推送。
-- 未完成：脚本路径 `%USERPROFILE%\Downloads\01_CatPaw_TK.mp4` 不存在；Windows 实际下载目录 `D:\Codex\Downloads` 中同名文件也不存在。已向用户询问该文件位置，未使用其他视频替代。
-- 连接测试失败，原文：`browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222`。已请求用户保存工作并完全退出 Chrome；尚未重启或修改浏览器设置。
-- 尚未运行选文件脚本、打开上传页、选入文件、填文案或发布。等待用户提供准确文件路径并确认 Chrome 退出后继续；不能标记完成。
+- 更新时间：2026-11-14 11:02:04（Asia/Shanghai）。用户最新确认 #01 已发布，不需要上传文件；不再查找视频。此确认取代先前“尚未发布”的回复。
+- 已完成：Node.js v24.19.0、npm 11.17.0 可用；已在 `scripts/` 一次性安装 playwright-core 1.65.1。依赖和 npm 缓存在 D 盘，本地依赖文件已排除，不推送。
+- 待完成：Chrome 9222 调试连接验证。上次测试报错原文：`browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222`。不能标记为环境全部搭好。
+- 用户说明 Facebook 检查仍在运行，Chrome 现在不能关闭。按用户要求等待其明确通知后再重启 Chrome 开启调试端口；当前不关闭、不重启、不修改 Chrome。
+- 收到通知后的工作仅为开启调试端口并测试连接；不打开 TikTok 上传页、不选文件、不填文案、不发布。

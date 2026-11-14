@@ -33,3 +33,5 @@
 - `git push` 推回仓库。
 
 - 2026-11-14 10:59:46（Asia/Shanghai）结果：失败/待用户补充。用户确认未发布；Node.js 可用且 playwright-core 1.65.1 已安装。两个下载路径均缺少指定文件，已询问用户位置；连接报错原文：browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222。待用户确认退出 Chrome；未选文件、未发布，原脚本未改动。
+
+- 2026-11-14 11:02:04（Asia/Shanghai）最新结果：用户更正 #01 已发布，不用传文件、不再查找视频。Node.js 和 playwright-core 已就绪，Chrome 调试连接尚未完成。用户要求 Facebook 检查期间保持 Chrome 运行，等其明确通知后再重启开调试端口；此时只测连接，不打开上传页、不选文件。
