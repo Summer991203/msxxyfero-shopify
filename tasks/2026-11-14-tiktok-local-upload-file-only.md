@@ -15,7 +15,9 @@
 - TikTok 账号：@msxxyfero.shop（已在用户 Chrome 里登录）
 
 ## 步骤
-1. 先问用户：TikTok #01 发出去了没有？（云端任务可能已经发了。）用户说发了，直接到“回传”那步写“已发布，不用做”，任务结束。
+1. 先问用户：TikTok #01 发出去了没有？（云端任务 2026-11-14 10:49 已经发了，大概率是发了。）
+   - 用户说发了：不用传文件，但还是要把环境搭好——装 playwright-core、确认 Node.js 可用、确认脚本能连上用户 Chrome 的调试端口 9222（只测连接，不要打开上传页、不要选任何文件），然后到“回传”写“#01 已发布不用传，环境已搭好”，任务结束。
+   - 用户说没发：继续下面步骤。
 2. 确认 Node.js 可用；进 `scripts/` 装一次 playwright-core（`npm install playwright-core`，只装这一次）。不要把 node_modules 推回仓库。
 3. 连用户 Chrome 的调试端口 9222。如果连不上：让用户先完全关掉 Chrome，你再用 `--remote-debugging-port=9222` 重新打开 Chrome，然后再跑脚本。不要改用户 Chrome 的其他设置。
 4. 跑 `node scripts/set-tiktok-file.js`：连上用户 Chrome，打开 https://www.tiktok.com/upload ，把视频文件选进上传框，等到文案框出现（说明视频已开始处理），就停下、退出。
@@ -23,6 +25,7 @@
 
 ## 完成标准
 - 上传表单里已选好 01_CatPaw_TK.mp4，视频正在处理（文案框已出现），且你没有点发布。
+- 如果 #01 已发布：环境已搭好（playwright 已装、能连上 Chrome 调试端口）即算完成。
 
 ## 回传
 - 更新 `status.md`：写明文件已选好、时间；失败就写明报错原文。
