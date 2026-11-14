@@ -21,3 +21,12 @@
 - **仍需知悉**：Browser Use 连接器要求重新认证，本次改用本机浏览器完成验证；不影响本次发布。未来后台完整链路依赖当时的认证、工具与额度。
 - **待处理**：11 月 8、9 日两个既有 brief 保持待执行；首次基线不会自动触发旧任务。后续按用户安排或 Muse 的新任务提交执行，届时核查事实与选题依据。
 - **下一步（Muse）**：验 live 页面；如有事实修正，写入 tasks/ 或 briefs/。本次未代发消息，也未声称 Muse 已验收。
+
+## TikTok #01 选文件任务（2026-11-14）
+
+- 检查时间：2026-11-14 10:59:46（Asia/Shanghai）。用户本次明确确认 #01 尚未发布，目标仅为选入文件。
+- `git pull --ff-only` 成功，执行前 main 为 `e77a41e`，工作区干净。
+- Node.js v24.19.0、npm 11.17.0 可用；已在 `scripts/` 一次性安装 playwright-core 1.65.1。依赖和 npm 缓存在 D 盘，node_modules、package 文件、错误截图已用本地 `.git/info/exclude` 排除，不推送。
+- 未完成：脚本路径 `%USERPROFILE%\Downloads\01_CatPaw_TK.mp4` 不存在；Windows 实际下载目录 `D:\Codex\Downloads` 中同名文件也不存在。已向用户询问该文件位置，未使用其他视频替代。
+- 连接测试失败，原文：`browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222`。已请求用户保存工作并完全退出 Chrome；尚未重启或修改浏览器设置。
+- 尚未运行选文件脚本、打开上传页、选入文件、填文案或发布。等待用户提供准确文件路径并确认 Chrome 退出后继续；不能标记完成。

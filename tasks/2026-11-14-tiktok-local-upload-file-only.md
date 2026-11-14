@@ -31,3 +31,5 @@
 - 更新 `status.md`：写明文件已选好、时间；失败就写明报错原文。
 - 在本任务文件末尾追加一行结果（已选好 / 已发布不用做 / 失败+报错）。
 - `git push` 推回仓库。
+
+- 2026-11-14 10:59:46（Asia/Shanghai）结果：失败/待用户补充。用户确认未发布；Node.js 可用且 playwright-core 1.65.1 已安装。两个下载路径均缺少指定文件，已询问用户位置；连接报错原文：browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222。待用户确认退出 Chrome；未选文件、未发布，原脚本未改动。
