@@ -29,3 +29,16 @@
 - 待完成：Chrome 9222 调试连接验证。上次测试报错原文：`browserType.connectOverCDP: connect ECONNREFUSED 127.0.0.1:9222`。不能标记为环境全部搭好。
 - 用户说明 Facebook 检查仍在运行，Chrome 现在不能关闭。按用户要求等待其明确通知后再重启 Chrome 开启调试端口；当前不关闭、不重启、不修改 Chrome。
 - 收到通知后的工作仅为开启调试端口并测试连接；不打开 TikTok 上传页、不选文件、不填文案、不发布。
+
+## 2026-11-16 本机恢复监听及 TikTok #04 进度
+
+- 已先 pull 至 c29980b；收到用户更新后再次 pull 至 bd35cf8。按要求先恢复监听，再准备 #04。
+- 监听原本已安装且持续轮询；实际故障是启动 Codex 时反复出现：FileNotFoundError(2, '系统找不到指定的文件。', None, 2, None)。当前 codex-cli 0.167.0-alpha.3.2、Python 3.14.8 可用，Codex 登录状态为 Logged in using ChatGPT。
+- 已通过既有计划任务入口重启，重新解析当前 Codex 可执行文件路径、清理旧监听进程树；未修改监听脚本或 300 秒轮询逻辑。10:59:15、11:04:50 均记录 watcher started；11:04:52 记录 git sync OK at bd35cf8; no new task commits。
+- Windows 计划任务 Msxxyfero Repo Watcher 正在运行；已启用开机及 Administrator 登录双触发；无限运行时间、IgnoreNew 防并发。未重启整机验证，也未新增真实 Codex 执行测试，不把 CLI 登录态等同于后台发布能力。
+- 日志和状态保留在 D:\Codex\msxxyfero-watcher；原状态另存 state-before-20261116-recovery.json。此次前台接管今天两项任务，为防重复发布及执行范围外旧任务，维护时同步监听基线；11 月 14 日旧任务未执行、未标记完成。11:04:18 旧进程在用户更新期间发现任务变更，随后重启入口已清理其进程树。
+- #04 视频现已按更新任务从指定 Muse 链接下载至 D:\Codex\Downloads\04_CatPaw_TK.mp4，50,099,506 字节；ffprobe 验证 H.264/AAC、1080×1920、20 秒；抽查开头和后段画面与 Paw Inspection 相符。SHA256：AFEEA82D89D89847359AED0A16CE03A2189B14C5F1C53E3B0260E3BE7DE76E0D。
+- Node.js v24.19.0、已有 playwright-core 1.65.1 可用，未重复安装。原脚本未运行，文案 scripts/caption-04.txt 未修改。
+- 本机 Chrome 157.0.8103.39；9222 返回：由于目标计算机积极拒绝，无法连接。 (127.0.0.1:9222)。官方从 Chrome 136 起不接受默认用户目录的 remote-debugging-port，来源：https://developer.chrome.com/blog/remote-debugging-port 。用户本次已明确改为本地 Chrome 界面发布，取代任务中的 CDP 脚本路径；仍须上传完成且音乐版权检查、内容快速检查均显示未发现问题后才点击发布。
+- 当前阻塞：本地桌面工具 Snapshot/ControlStatus 持续返回 USER_CONTROL，state=user，无法接管 Chrome。已提醒用户暂时停止鼠标键盘输入。未改用云端，未关闭或重启 Chrome，未绕过桌面控制限制。
+- #04 尚未进入上传页、未上传、未点击发布，发布尝试 0 次；无公开链接、无发布错误截图。需桌面控制权恢复后继续本地发布并核对公开主页、文案及播放。未操作 #03 或其他视频。
